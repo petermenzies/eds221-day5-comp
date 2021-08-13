@@ -43,16 +43,19 @@ Add line-by-line comments wheres prompted in the code below, explaining what eac
 # ------ WHAT HAPPENS HERE? ------ #
 # ------ comment line-by-line ---- #
 
-# The line below...
+# The line below... assigns time_yr as a vector from 0 to 8 by 1
 time_yr <- seq(from = 0, to = 8, by = 1)
 
-# The line below...
+# The line below... 
 proj_year <- matrix(ncol = length(fish_year0), nrow = length(time_yr))
 
-# The line below...
+# The line below... all columns in row 1 of proj_year is assigned our starting values assigned as fish_year0
 proj_year[1, ] <- fish_year0
 
-# The for loop below...
+# The for loop below... for each element in vector (2, 3, 4, 5, 6, 7, 8, 9) input the element as the row index of proj_year which is assigned to the dot product of fish_leslie (our leslie matrix) and the previous row (row index i - 1)
+
+# we start our iteration vector at 2 because we're starting our matrix population at row 2 based on our values from row 1. alternatively we could start the vector at 1 and the row we're populating could be i + 1 index, but we'd also have to adjust our matrix dimension parameters
+
 for (i in 2:length(time_yr)) {
   proj_year[i,] <- fish_leslie %*% proj_year[i-1,]
 }
