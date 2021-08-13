@@ -1,0 +1,22 @@
+---
+title: "Cork Oak Modeling"
+author: "Peter Menzies"
+date: "8/13/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+
+source(here("src", "cork_oak_growth.R"))
+```
+
+```{r}
+height_t2(height_t1 = 25, t1 = 4, t2 = 10)
+
+# you can show what the function contains by calling it with no parenthesis
+height_t2
+```
+
+In line r code >> `r `
